@@ -4,6 +4,7 @@
 
 # Session Data files
 .RData
+.RDataTmp
 
 # User-specific files
 .Ruserdata
@@ -31,9 +32,31 @@ vignettes/*.pdf
 *_cache/
 /cache/
 
+# Shiny Persistent Cache
+# cache/
+
+# exclude everything from these folders
+cache/2d-cache/*
+cache/3d-cache/*
+cache/sizes-cache/*
+cache/word-cache/*
+
+# exceptions to the above rules. This keeps the folder but not the contents
+!cache/2d-cache/*.gitkeep 
+!cache/3d-cache/*.gitkeep 
+!cache/sizes-cache/*.gitkeep 
+!cache/word-cache/*.gitkeep 
+
 # Temporary files created by R markdown
 *.utf8.md
 *.knit.md
 
 # R Environment Variables
 .Renviron
+
+# Cloud Build Key
+kfmapp-428ef08101fd.json
+
+# Notes
+*.docx
+
