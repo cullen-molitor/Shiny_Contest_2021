@@ -246,7 +246,7 @@ source('modules.R')
 }
 
 { # SST Indicies  ----
-  SST_Anomaly_Index <- arrow::read_feather("Tidy_Data/SST_Anomaly_Index.feather")
+  SST_Anomaly_Index <- readr::read_csv("Tidy_Data/SST_Anomaly_Index.csv")
 }
 
 { # Dive meta data  ----
@@ -447,17 +447,17 @@ source('modules.R')
 }
 
 { # Biodiversity Data    ----
-  Diversity <- arrow::read_feather("Tidy_Data/Diversity.feather")
+  Diversity <- readr::read_csv("Tidy_Data/Diversity.csv")
 }
 
 { # Mixed Data   ----
-  Mixed_2005 <- arrow::read_feather("Tidy_Data/Mixed_Data_2005.feather") %>%
+  Mixed_2005 <- readr::read_csv("Tidy_Data/Mixed_Data_2005.csv") %>%
     dplyr::mutate(SurveyYear = factor(SurveyYear), 
                   IslandName = factor(IslandName),
                   ReserveStatus = factor(ReserveStatus)) %>% 
     dplyr::select(-SiteNumber, -SiteName,  -IslandCode, -SiteCode) 
   
-  Mixed_All <- arrow::read_feather("Tidy_Data/Mixed_Data_All.feather") %>%
+  Mixed_All <- readr::read_csv("Tidy_Data/Mixed_Data_All.csv") %>%
     dplyr::mutate(SurveyYear = factor(SurveyYear),
                   IslandName = factor(IslandName),
                   ReserveStatus = factor(ReserveStatus)) %>% 
@@ -473,29 +473,29 @@ source('modules.R')
 }
 
 { # Community Similarity Data   ----
-  nMDS <- arrow::read_feather('Tidy_Data/nMDS.feather')
+  nMDS <- readr::read_csv('Tidy_Data/nMDS.csv')
 }
 
 { # Important Species Data  ---- 
-  RF_Importance <- arrow::read_feather("Tidy_Data/RF_Importance.feather")
+  RF_Importance <- readr::read_csv("Tidy_Data/RF_Importance.csv")
 }
 
 { # Density and Biomass Data    ----
-  Density <- arrow::read_feather("Tidy_Data/Density.feather")
-  Biomass <- arrow::read_feather("Tidy_Data/Biomass.feather")
+  Density <- readr::read_csv("Tidy_Data/Density.csv")
+  Biomass <- readr::read_csv("Tidy_Data/Biomass.csv")
   
-  All_Ratios <- arrow::read_feather("Tidy_Data/Ratios.feather")
+  All_Ratios <- readr::read_csv("Tidy_Data/Ratios.csv")
 }
 
 { # Sizes  ----
-  Benthic_Sizes <- arrow::read_feather("Tidy_Data/Benthic_Sizes.feather")
-  Fish_Sizes <- arrow::read_feather("Tidy_Data/Fish_Sizes.feather")
-  ARM_Sizes <- arrow::read_feather("Tidy_Data/ARMs.feather")
-  ARM_par_Sizes <- arrow::read_feather("Tidy_Data/ARMs_par.feather")
+  Benthic_Sizes <- readr::read_csv("Tidy_Data/Benthic_Sizes.csv")
+  Fish_Sizes <- readr::read_csv("Tidy_Data/Fish_Sizes.csv")
+  ARM_Sizes <- readr::read_csv("Tidy_Data/ARMs.csv")
+  ARM_par_Sizes <- readr::read_csv("Tidy_Data/ARMs_par.csv")
 }
 
 { # Report Text   -----
-  Text <- arrow::read_feather("Tidy_Data/Text.feather")
+  Text <- readr::read_csv("Tidy_Data/Text.csv")
   Acronyms <- dplyr::arrange(data.table::fread("Meta_Data/Acronyms.csv", encoding = "Latin-1"))
 }
 
